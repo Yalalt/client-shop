@@ -1,11 +1,11 @@
-import Navbar from "./subComponent/Navbar";
+import NavbarTop from "./subComponent/NavbarTop";
 import style from "../styles/footer.module.css";
 
 const Header = () => {
-    return (
-        <div className={style.headerBar}>
-            
-        </div>
-    );
-}
+  return (
+    <div>
+      <NavbarTop />
+    </div>
+  );
+};
 export default Header;

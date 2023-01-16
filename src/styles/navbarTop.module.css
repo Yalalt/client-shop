@@ -1,0 +1,67 @@
+.navbarTop {
+  background-color: var(--primary-color);
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logoNavbar {
+  width: 30%;
+  color: #fff;
+}
+.inputGroup {
+  width: 40%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.inputSearch {
+  width: 100%;
+  outline: none;
+  border-radius: 30px;
+  font-size: 18px;
+  padding-left: 20px;
+  color: #555;
+}
+.searchBtn {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  height: 42px;
+  width: 150px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  outline: none;
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.menuItems {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+.loginItem {
+  color: #fff;
+  text-decoration: none;
+}
+.userCartValue {
+  display: inline;
+  color: #fff;
+}
+.signInIcon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 100;
+}
+.signInIcon > * {
+  margin: 0;
+  padding: 0;
+}

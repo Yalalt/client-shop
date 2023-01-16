@@ -30,7 +30,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  padding: .25rem;
+  padding: 0.25rem;
 }
 .menuItems li:hover {
   background-color: coral;
@@ -38,4 +38,3 @@
 .active {
   background-color: #888;
 }
-
