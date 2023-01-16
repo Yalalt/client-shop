@@ -23,7 +23,11 @@ function App() {
       <Header />
       <Routes>
         <Route path={MENUS[0].url} element={<Home />} />
-        <Route path={MENUS[1].url} element={<Login />} loginCheck={loginCheckUser} />
+        <Route
+          path={MENUS[1].url}
+          element={<Login />}
+          loginCheck={loginCheckUser}
+        />
         <Route path={MENUS[2].url} element={<About />} />
         <Route path="/register" element={<Register />} />
       </Routes>
