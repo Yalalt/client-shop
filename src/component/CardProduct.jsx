@@ -3,7 +3,6 @@ import css from "../styles/cardProduct.module.css";
 import GrayShoppingCardImage from "../utils/imgs/shoppingcartgray.png";
 
 const CardProduct = (props) => {
-  console.log("Product: " + props.itemData);
   return (
     <div>
       <div className={css.CardBody}>

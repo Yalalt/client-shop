@@ -6,13 +6,13 @@ export const MENUS = [
 ];
 
 export const NAVIGATION = [
-  { name: "All", url: "/" },
-  { name: "Laptops", url: "/computers" },
-  { name: "Tablets", url: "/tablets" },
-  { name: "Appliances", url: "/appliances" },
-  { name: "Console", url: "/console" },
-  { name: "Telescope", url: "/telescope" },
-  { name: "Electronics", url: "/electronics" },
+  { name: "All", url: "all" },
+  { name: "Laptops", url: "computers" },
+  { name: "Tablets", url: "tablets" },
+  { name: "Appliances", url: "appliances" },
+  { name: "Console", url: "console" },
+  { name: "Telescope", url: "telescope" },
+  { name: "Electronics", url: "electronics" },
 ];
 
 export const users = [
@@ -60,7 +60,7 @@ export const data = [
     id: "ea5e3b6c",
     image: "https://i.ebayimg.com/images/g/E8wAAOSwO9Bjmd1t/s-l1600.jpg",
     description:
-      "Used: An item that has been used previously. The item may have some signs of cosmetic wear, but is fully operational and functions as intended. This item may be a floor model or store return that has been used. See the seller’s listing for full details and description of any imperfections. ",
+      "Used: An item that has been used previously. The item may have some signs of cosmetic wear, but is fully operational and functions as intended. This item may be a floor model or store return that has been used. See the sellers listing for full details and description of any imperfections. ",
     price: 180,
     stock: 29,
     sale: 0,
@@ -197,7 +197,7 @@ export const data = [
     },
     name: "LED bulbs",
     id: "8bf7f5fc",
-    image: "​https://m.media-amazon.com/images/I/51rOc2LtV8L._AC_SX679_.jpg",
+    image: "https://m.media-amazon.com/images/I/51rOc2LtV8L._AC_SX679_.jpg",
     price: 80,
     stock: 4,
     sale: 2,
@@ -214,7 +214,7 @@ export const data = [
     },
     name: "Philips Oven",
     id: "8bf7f8d6",
-    image: "​​https://m.media-amazon.com/images/I/718ApoJ2PmL._AC_SX679_.jpg",
+    image: "https://m.media-amazon.com/images/I/718ApoJ2PmL._AC_SX679_.jpg",
     price: 79,
     stock: 164,
     sale: 20,
@@ -231,7 +231,7 @@ export const data = [
     },
     name: "Sketch Pad",
     id: "9afc4a40",
-    image: "​​https://m.media-amazon.com/images/I/71uJirbhb+L._AC_SX679_.jpg",
+    image: "https://m.media-amazon.com/images/I/71uJirbhb+L._AC_SX679_.jpg",
     price: 215,
     stock: 15,
     sale: 15,
@@ -256,7 +256,7 @@ export const data = [
   },
   {
     description:
-      "Dual-Port Simultaneous Charge: Charge your iPhone 14 and iPad Air fast and simultaneously. 45W Max Charging: Either USB-C port outputs up to 45W to your MacBook Air M2 2022 Go from 0% to 72% within an hour. One Charger, Any Device: This 45W dual usb c charger is compatible with Macbook Air, iPad Pro, iPhone 14-8 Series, Samsung S22 Ultra-S10 Series, Steam Deck, Apple Watch Ultra, Apple Watch 8. Pixel 7 Pro and more. NOTE: To achieve a 45W charge for the S22 Ultra, please use a 5A USB C to C cable.",
+      "This 45W dual usb c charger is compatible with Macbook Air, iPad Pro, iPhone 14-8 Series, Samsung S22 Ultra-S10 Series, Steam Deck, Apple Watch Ultra, Apple Watch 8. Pixel 7 Pro and more.",
     spec: {
       Brand: "UGREEN",
       Connectivity_Technology: "USB C",
@@ -272,7 +272,7 @@ export const data = [
   },
   {
     description:
-      "Beats Solo3 Wireless supports spatial audio for immersive music – delivering a surround sound experience that you can take with you anywhere.",
+      "Beats Solo3 Wireless supports spatial audio for immersive music delivering a surround sound experience that you can take with you anywhere.",
     spec: {
       Brand: "Beats",
       Length: "6.9 in. / 17.7 cm",
@@ -289,12 +289,12 @@ export const data = [
   },
   {
     description:
-      "Introducing the newest member of the Nintendo Switch family Play at home on the TV or on-the-go with a vibrant 7-inch OLED screen with the Nintendo Switch – OLED Model system. In addition to a new screen with vivid colors and sharp contrast, the Nintendo Switch – OLED Model includes a wide adjustable stand for more comfortable viewing angles, a dock with a wired LAN port for TV mode (LAN cable sold separately), 64GB of internal storage, and enhanced audio in Handheld and Tabletop modes using the system’s speakers.",
+      "Introducing the newest member of the Nintendo Switch family Play at home on the TV or on-the-go with a vibrant 7-inch OLED screen with the Nintendo Switch  OLED Model system.",
     spec: {
       Brand: "Nintendo",
       Storage: "Save games to your system with 64 GB of internal storage",
       Audio:
-        "Enjoy enhanced sound from the system’s onboard speakers when playing in Handheld and Tabletop modes.",
+        "Enjoy enhanced sound from the systems onboard speakers when playing in Handheld and Tabletop modes.",
     },
     name: "Nintendo Switch - OLED Model/White Joy-Con",
     id: "6a411100",
@@ -322,7 +322,7 @@ export const data = [
   },
   {
     description:
-      "Celestron PowerSeeker 127EQ Telescope - 20mm Erect-Image Eyepiece - 4mm Eyepiece - 3x Barlow Lens - Star Pointer Finder - Equatorial Head - 2x Slow-Motion Cables - Adjustable-Height Tripod - Counterweight Bar - 7.5 lbs Counterweight - Download Code - Original Box",
+      "Celestron PowerSeeker 127EQ Telescope - 20mm Erect-Image Eyepiece - 4mm Eyepiece - 3x Barlow Lens - Star Pointer Finder - Equatorial Head - 2x Slow-Motion Cables - Adjustable-Height Tripod - Counterweight Bar - 7.5 lbs.",
     spec: { Brand: "Celestron", Height: "8.46 inches", Width: "16.73 inches" },
     name: "Celestron - PowerSeeker 127EQ Telescope",
     id: "39b365d6",
@@ -550,7 +550,7 @@ export const data = [
     image: "https://m.media-amazon.com/images/I/81d74GHCPEL._AC_SX679_.jpg",
     price: 1099,
     stock: 3,
-    sale: 2,
+    sale: 20,
     category: "tablets",
   },
   {
@@ -572,7 +572,7 @@ export const data = [
     image: "https://m.media-amazon.com/images/I/51qmNla8aTL._AC_SX679_.jpg",
     price: 1399.99,
     stock: 5,
-    sale: 1,
+    sale: 5,
     category: "tablets",
   },
   {
@@ -594,7 +594,7 @@ export const data = [
     image: "https://m.media-amazon.com/images/I/51D3B+8L7DL._AC_SX679_.jpg",
     price: 1399.99,
     stock: 4,
-    sale: 1,
+    sale: 5,
     category: "tablets",
   },
   {
@@ -631,7 +631,7 @@ export const data = [
     image: "https://m.media-amazon.com/images/I/61E1h4TadxL._AC_SX679_.jpg",
     price: 46.71,
     stock: 8,
-    sale: 3,
+    sale: 30,
     category: "special",
   },
   {
