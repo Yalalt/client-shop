@@ -1,13 +1,15 @@
 import React from "react";
-import { NAVIGATION } from "../../utils/data";
 import style from "../../styles/navbar.module.css";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar(props) {
+  const { navigationMenus } = props;
+
   return (
     <nav className={style.nav}>
+      <span className={style.popular}>Popular products</span>
       <ul className={style.menuItems}>
-        {NAVIGATION.map((menu, index) => (
+        {navigationMenus.map((menu, index) => (
           <CustomLink key={index} to={menu.url}>
             {menu.name}
           </CustomLink>

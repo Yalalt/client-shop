@@ -5,12 +5,10 @@
 .nav {
   color: #333;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
   padding: 1rem 0;
-  font-size: 16px;
-  background-color: red;
 }
 .menuItems {
   display: flex;
@@ -32,9 +30,26 @@
   align-items: center;
   padding: 0.25rem;
 }
-.menuItems li:hover {
-  background-color: coral;
+.menuItems li {
+  background-color: #fff;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 110px;
+  font-size: 16px;
+  border-radius: 25px;
 }
-.active {
-  background-color: #888;
+
+.menuItems li:hover,
+.menuItems li.active {
+  color: #fff;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+.popular {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 700;
 }
