@@ -1,16 +1,16 @@
 import React from "react";
 import style from "../../styles/navbar.module.css";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { NavLink, useMatch, useResolvedPath } from "react-router-dom";
 
 export default function Navbar(props) {
-  const { navigationMenus } = props;
+  const { navigationMenus, getCategory } = props;
 
   return (
     <nav className={style.nav}>
       <span className={style.popular}>Popular products</span>
       <ul className={style.menuItems}>
         {navigationMenus.map((menu, index) => (
-          <CustomLink key={index} to={menu.url}>
+          <CustomLink key={index} to={menu.url} getCategory={getCategory}>
             {menu.name}
           </CustomLink>
         ))}
@@ -19,14 +19,14 @@ export default function Navbar(props) {
   );
 }
 
-function CustomLink({ to, children, ...props }) {
+function CustomLink({ to, children, getCategory, ...props }) {
   const resolvedPath = useResolvedPath(to);
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
   return (
-    <li className={isActive ? style.active : ""}>
-      <Link to={to} {...props}>
+    <li className={isActive ? style.active : ""} onClick={getCategory}>
+      <NavLink to={to} {...props}>
         {children}
-      </Link>
+      </NavLink>
     </li>
   );
 }

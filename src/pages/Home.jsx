@@ -8,8 +8,8 @@ import MiddleContent from "../component/MiddleContent";
 
 const Home = () => {
   let [selected, setSelected] = useState("/all");
-  const getCategory = (resolvedPath) => {
-    setSelected(resolvedPath);
+  const getCategory = (path) => {
+    setSelected(path);
   };
 
   return (
