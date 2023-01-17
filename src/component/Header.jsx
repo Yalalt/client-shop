@@ -1,4 +1,4 @@
-import NavbarTop from "./subComponent/NavBarTop";
+import NavbarTop from "./subComponent/NavbarTop";
 import style from "../styles/footer.module.css";
 
 const Header = () => {
