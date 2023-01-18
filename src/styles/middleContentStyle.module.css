@@ -40,10 +40,18 @@
 .primaryBtn {
   margin-bottom: 20px;
   color: var(--primary-color);
+  cursor: pointer;
+}
+.primaryBtn:hover {
+  background-color: antiquewhite;
 }
 .blackBtn {
   margin-top: 20px;
   background-color: transparent;
   border: 2px solid var(--secondary-color);
   color: #fff;
+  cursor: pointer;
+}
+.blackBtn:hover {
+  background-color: var(--secondary-color);
 }
