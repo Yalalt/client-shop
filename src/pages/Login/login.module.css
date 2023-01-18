@@ -109,4 +109,5 @@ input::placeholder {
   outline: none;
   font-size: 20px;
   color: #888;
+  cursor: pointer;
 }

@@ -1,13 +1,13 @@
-import style from "../styles/home.module.css";
-import ShowcaseHero from "../component/ShowcaseHero";
-import Navbar from "../component/subComponent/Navbar";
-import Products from "../component/Products";
-import { data, CATEGORY, NAVIGATION } from "../utils/data";
+import { data, CATEGORY, NAVIGATION } from "../../utils/data";
 import { useState } from "react";
-import MiddleContent from "../component/MiddleContent";
-import SpecialsProducts from "../component/SpecialsProducts";
-import Logos from "../component/Logos";
-import Footer from "../component/Footer";
+import ShowcaseHero from "../../component/ShowcaseHero";
+import Navbar from "../../component/subComponent/Navbar";
+import MiddleContent from "../../component/MiddleContent";
+import Products from "../../component/Products";
+import SpecialsProducts from "../../component/SpecialsProducts";
+import Logos from "../../component/Logos"
+import Footer from "../../component/Footer";
+import style from "./home.module.css";
 
 const Home = () => {
   let [selected, setSelected] = useState("all");

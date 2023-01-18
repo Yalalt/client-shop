@@ -1,11 +1,11 @@
 import React from "react";
-import HeaderLogoBig from "../../utils/imgs/headerLogoElectronics.png";
-import UserIcon from "../../utils/imgs/user.png";
-import CartIcon from "../../utils/imgs/shoppingcartwhite.png";
-import style from "../../styles/navbarTop.module.css";
+import HeaderLogoBig from "../../../utils/imgs/headerLogoElectronics.png";
+import UserIcon from "../../../utils/imgs/user.png";
+import CartIcon from "../../../utils/imgs/shoppingcartwhite.png";
+import style from "./navbarTop.module.css";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-export default function NavbarTop() {
+export default function NavbarTop(props) {
   return (
     <nav className={style.navbarTop}>
       <Link to="/" className={style.logoNavbar}>
@@ -24,7 +24,14 @@ export default function NavbarTop() {
       <ul className={style.menuItems}>
         <span className={style.signInIcon}>
           <img src={UserIcon} alt="User account icon" />
-          <button className={style.loginItem}>Sign in</button>
+          {
+            props.loggedUser ? <button 
+            onClick={()=>props.setLogged(false)}
+            className={style.loginItem}>Logout</button> : <button 
+            onClick={()=>props.setLogin(true)}
+            className={style.loginItem}>Sign in</button>
+          }
+          
         </span>
         <span className={style.signInIcon}>
           <img src={CartIcon} alt="Shopping cart icon" />

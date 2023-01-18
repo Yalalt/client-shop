@@ -1,8 +1,8 @@
-import css from "../styles/footer.module.css";
-import logoIcons from "../utils/imgs/headerLogoElectronics.png";
-import logoIconsGoogle from "../utils/imgs/googleLogoIcons.png";
-import logoIconsFacebook from "../utils/imgs/facebookLogoIcons.png";
-import logoIconsWhatsup from "../utils/imgs/whatsappLogoIcons.png";
+import css from "./footer.module.css";
+import logoIcons from "../../utils/imgs/headerLogoElectronics.png";
+import logoIconsGoogle from "../../utils/imgs/googleLogoIcons.png";
+import logoIconsFacebook from "../../utils/imgs/facebookLogoIcons.png";
+import logoIconsWhatsup from "../../utils/imgs/whatsappLogoIcons.png";
 
 const Footer = () => {
   return (

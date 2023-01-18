@@ -1,4 +1,4 @@
-import style from "../styles/register.module.css";
+import style from "./register.module.css";
 
 const Register = () => {
     return (

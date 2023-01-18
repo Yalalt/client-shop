@@ -14,20 +14,24 @@
   position: relative;
   display: flex;
   align-items: center;
+  padding: 1px 0;
+  height: 45px;
 }
 .inputSearch {
+  padding: 0;
   width: 100%;
   outline: none;
   border-radius: 30px;
   font-size: 18px;
   padding-left: 20px;
   color: #555;
+  height: inherit;
 }
 .searchBtn {
   position: absolute;
   right: 1px;
   top: 1px;
-  height: 42px;
+  height: inherit;
   width: 150px;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;

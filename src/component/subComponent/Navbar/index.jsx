@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../styles/navbar.module.css";
+import style from "./navbar.module.css";
 
 export default function Navbar(props) {
   const { navigationMenus, getCategory, selected } = props;

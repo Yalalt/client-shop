@@ -1,6 +1,6 @@
 import React from "react";
-import css from "../styles/products.module.css";
-import CardProduct from "./CardProduct";
+import css from "./products.module.css";
+import CardProduct from "../CardProduct";
 
 const Products = (props) => {
   return (

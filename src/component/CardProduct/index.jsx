@@ -1,6 +1,6 @@
 import React from "react";
-import css from "../styles/cardProduct.module.css";
-import GrayShoppingCardImage from "../utils/imgs/shoppingcartgray.png";
+import css from "./cardProduct.module.css";
+import GrayShoppingCardImage from "../../utils/imgs/shoppingcartgray.png";
 
 const CardProduct = (props) => {
   return (

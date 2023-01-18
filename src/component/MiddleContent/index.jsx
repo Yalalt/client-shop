@@ -1,5 +1,5 @@
-import css from "../styles/middleContentStyle.module.css";
-import specialMiddleContent from "../utils/imgs/pexels-nao-triponez-1292081.png";
+import css from "./middleContentStyle.module.css";
+import specialMiddleContent from "../../utils/imgs/pexels-nao-triponez-1292081.png";
 
 const MiddleContent = () => {
   return (

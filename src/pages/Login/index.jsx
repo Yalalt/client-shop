@@ -1,22 +1,30 @@
 import { useState } from "react";
-import loginiconlogo from "../utils/imgs/loginRegisterLogo.png";
-import style from "../styles/login.module.css";
+import loginiconlogo from "../../utils/imgs/loginRegisterLogo.png";
+import style from "./login.module.css";
 
-const Login = () => {
-  const [userName, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
+const Login = (props) => {
+  
   function loginHandler(e) {
     e.preventDefault();
-    setUsername(e.target.userName.value);
-    setPassword(e.target.password.value);
-    // loginCheck(userName, password);
+    props.setUsername("");
+    props.setPassword("");
+    console.log("Name: " + e.target.userName.value);
+    console.log("Pass: " + e.target.password.value);
+    props.loginCheck(e.target.userName.value, e.target.password.value);
+  }
+
+  function setLoginClose(e) {
+    e.preventDefault();
+    props.setLogin(false);
   }
 
   return (
     <div className={style.formContainer}>
       <img src={loginiconlogo} alt="Login icon" />
-      <button type="button" className={style.closeButton}>
+      <button 
+        onClick={setLoginClose}
+        type="button" 
+        className={style.closeButton}>
         X
       </button>
       <h3 className={style.headTitle}>Нэвтрэх</h3>
@@ -26,11 +34,14 @@ const Login = () => {
           name="userName"
           placeholder="И-мэйл эсвэл Утасны дугаар"
         />
-        <input type="text" name="password" placeholder="Нууц үг" />
+        <input 
+          type="text" 
+          name="password" 
+          placeholder="Нууц үг" />
         <div className={style.recoverPassword}>
           <a href="#">Нууц үгээ мартсан уу?</a>
         </div>
-        <button className={style.submitBtn} type="submit">
+        <button  className={style.submitBtn} type="submit">
           Нэвтрэх
         </button>
         <div className={style.throughLine}>

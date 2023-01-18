@@ -1,6 +1,6 @@
 import React from "react";
-import css from "../styles/specialsProducts.module.css";
-import GrayShoppingCardImage from "../utils/imgs/shoppingcartwhite.png";
+import css from "./specialsProducts.module.css";
+import GrayShoppingCardImage from "../../utils/imgs/shoppingcartwhite.png";
 
 const SpecialsProducts = (props) => {
   const specialsData = props.data;

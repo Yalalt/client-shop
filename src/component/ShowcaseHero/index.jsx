@@ -1,5 +1,5 @@
-import css from "../styles/showcaseHero.module.css";
-import BigHeroImage from "../utils/imgs/showcaseBigCamera.png";
+import css from "./showcaseHero.module.css";
+import BigHeroImage from "../../utils/imgs/showcaseBigCamera.png";
 const ShowcaseHero = () => {
   return (
     <div className={css.bgBlue}>
