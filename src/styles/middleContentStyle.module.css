@@ -2,4 +2,48 @@
   width: 100%;
   border-radius: 5px;
   margin: 30px 0;
+  position: relative;
+}
+.SaleBannerText {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  z-index: 99;
+  top: 20%;
+  right: 100px;
+  margin: 0;
+  padding: 0;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.SaleBannerText button {
+  width: 150px;
+  padding: 12px 16px;
+  outline: none;
+  border-radius: 25px;
+  font-size: 16px;
+}
+.SaleBannerText p {
+  line-height: 0;
+}
+.greenSaleText {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+.subjectSaleItem {
+  color: #fff;
+  font-weight: 200;
+  font-size: 20px;
+}
+.primaryBtn {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+.blackBtn {
+  margin-top: 20px;
+  background-color: transparent;
+  border: 2px solid var(--secondary-color);
+  color: #fff;
 }

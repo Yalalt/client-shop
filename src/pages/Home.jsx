@@ -5,15 +5,19 @@ import Products from "../component/Products";
 import { data, CATEGORY, NAVIGATION } from "../utils/data";
 import { useState } from "react";
 import MiddleContent from "../component/MiddleContent";
-
+import SpecialsProducts from "../component/SpecialsProducts";
+import Logos from "../component/Logos";
+import Footer from "../component/Footer";
 
 const Home = () => {
   let [selected, setSelected] = useState("all");
   let [newData, setNewData] = useState(data);
+  let [specialData, setSpecialData] = useState(
+    data.filter((item) => item.category === "special")
+  );
   const getCategory = (path) => {
     const copyData = data.filter((item) => {
-      if(item.category === path || path === "all")
-      {
+      if (item.category === path || path === "all") {
         return item;
       }
     });
@@ -26,10 +30,21 @@ const Home = () => {
     <div className={style.homeStyleMain}>
       <ShowcaseHero />
       <div className={style.innerContainer}>
-        <Navbar navigationMenus={NAVIGATION} getCategory={getCategory} selected={selected} />
-        <Products productsData={newData} category={CATEGORY} selected={selected} />
+        <Navbar
+          navigationMenus={NAVIGATION}
+          getCategory={getCategory}
+          selected={selected}
+        />
+        <Products
+          productsData={newData}
+          category={CATEGORY}
+          selected={selected}
+        />
         <MiddleContent />
+        <SpecialsProducts data={specialData} />
+        <Logos />
       </div>
+      <Footer />
     </div>
   );
 };

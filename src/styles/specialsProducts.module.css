@@ -1,0 +1,124 @@
+.SpecialsProducts {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.MainSpecials {
+  box-sizing: border-box;
+  width: 48%;
+  height: 780px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 36px;
+  gap: 20px;
+}
+.MainImage {
+  width: 70%;
+  align-self: center;
+}
+.name {
+  color: var(--primary-color);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 2.5;
+}
+.price {
+  font-size: 18px;
+}
+.desc {
+  font-size: 16px;
+  color: var(--primary-color);
+  font-weight: 300;
+  text-align: justify;
+}
+.AddCartButton {
+  width: 250px;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 35px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.grayShoppingCart {
+  background-color: var(--primary-color);
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+.grayShoppingCart img {
+  width: 65%;
+  text-align: center;
+  padding: 5px;
+}
+.SecondarySpecials {
+  width: 48%;
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+}
+.spec1,
+.spec2 {
+  height: 380px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  box-sizing: border-box;
+}
+.secSpecImage {
+  width: 45%;
+}
+.secondSpec {
+  width: 45%;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 16px;
+}
+.dateNow {
+  font-size: 16px;
+  color: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+  padding: 8px 28px;
+  border-radius: 30px;
+}
+.secSpecTitle {
+  text-align: left;
+  font-size: 24px;
+  color: var(--primary-color);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+.secSpecName {
+  font-size: 12px;
+  font-weight: 300;
+  color: #222;
+}
+.secSpecDesc {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 200;
+  text-align: left;
+  color: var(--primary-color);
+}
+.secSpecBrand {
+  font-size: 16px;
+  color: var(--secondary-color);
+}

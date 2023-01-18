@@ -1,0 +1,14 @@
+.logosContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+.logosContainer img {
+  color: gray;
+  mix-blend-mode: hue;
+}
+.grayMixColor {
+  filter: grayscale(95%);
+}

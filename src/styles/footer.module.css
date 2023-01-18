@@ -1,0 +1,25 @@
+.SocialLogos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+}
+.FooterBg {
+  background-color: var(--primary-color);
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.footerTerm {
+  text-align: left;
+  align-items: flex-end;
+  width: 440px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+}
+.underline {
+  text-decoration: underline;
+}
