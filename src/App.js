@@ -6,8 +6,12 @@ import Register from "./pages/Register";
 import { MENUS, users } from "./utils/data";
 import style from "./app.module.css";
 import { Route, Routes } from "react-router-dom";
+import Shadow from "./component/Shadow";
+import { useState } from "react";
 
 function App() {
+  let [openLogin, SetLogin] = useState(false);
+
   const loginCheckUser = (uName, uPassword) => {
     users.forEach((user) => {
       if (user.name === uName && user.password === uPassword) {
@@ -20,12 +24,15 @@ function App() {
 
   return (
     <div className={style.container}>
+      {openLogin && (
+        <div>
+          <Login />
+          <Shadow />
+        </div>
+      )}
       <Header />
       <Routes>
         <Route path={MENUS[0].url} element={<Home />} />
-        <Route path={MENUS[1].url} element={<Login />} />
-        <Route path={MENUS[2].url} element={<About />} />
-        <Route path={MENUS[3].url} element={<Register />} />
       </Routes>
     </div>
   );

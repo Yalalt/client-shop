@@ -50,6 +50,12 @@
 .loginItem {
   color: #fff;
   text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 100;
+  cursor: pointer;
 }
 .userCartValue {
   display: inline;
@@ -65,7 +71,6 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  font-weight: 100;
 }
 .signInIcon > * {
   margin: 0;

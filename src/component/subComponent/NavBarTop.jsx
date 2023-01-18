@@ -24,9 +24,7 @@ export default function NavbarTop() {
       <ul className={style.menuItems}>
         <span className={style.signInIcon}>
           <img src={UserIcon} alt="User account icon" />
-          <Link to="/login" className={style.loginItem}>
-            Sign in
-          </Link>
+          <button className={style.loginItem}>Sign in</button>
         </span>
         <span className={style.signInIcon}>
           <img src={CartIcon} alt="Shopping cart icon" />
