@@ -3,7 +3,7 @@ import Home from "../../pages/Home";
 import Login from "../../pages/Login";
 import { MENUS, users } from "../../utils/data";
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Shadow from "../Shadow";
 import style from "./app.module.css";
 
@@ -14,24 +14,22 @@ function App() {
   const [password, setPassword] = useState("");
 
   const checkState = (uName, uPassword) => {
-    console.log("Func in: " + uName + ", " + uPassword);
+    console.log("Func into: " + uName + ", " + uPassword);
 
     setUsername(uName);
     setPassword(uPassword);
-    loginCheckUsernamePassword();
-  }
-  const loginCheckUsernamePassword = () => {
-    console.log("State in: " + userName + ", " + password);
+    useEffect(() => {
+      console.log("State in: " + userName + ", " + password);
+    });
 
-    const loginState = users.map((user, index) => {
+    users.forEach((user, index) => {
       if (user.name === userName && user.password === password) {
         console.table("Successful login " + index);
-        return true;
+        setLogged(true);
       } else {
         console.table("Login wrong !!" + index);
       }
     });
-    setLogged(loginState === true ? true : false);
   };
 
   return (

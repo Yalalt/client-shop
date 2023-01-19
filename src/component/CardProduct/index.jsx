@@ -5,7 +5,10 @@ import GrayShoppingCardImage from "../../utils/imgs/shoppingcartgray.png";
 const CardProduct = (props) => {
   return (
     <div>
-      <div className={css.CardBody}>
+      <div
+        className={css.CardBody}
+        onClick={() => props.ModalCall(props.itemID)}
+      >
         <div className={css.CardImage}>
           <img src={props.itemData.image} alt="Item shop" />
         </div>
