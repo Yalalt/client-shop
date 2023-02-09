@@ -14,14 +14,17 @@ const Home = () => {
   let ProductsContext = createContext();
   let [selected, setSelected] = useState("all");
   let [newData, setNewData] = useState();
-  let [specialData, setSpecialData] = useState(
-    newData.filter((item) => item.category === "special")
-  );
+  let [specialData, setSpecialData] = useState();
+
+  const saveData = (data) => {
+    setNewData(data);
+    setSpecialData(() => newData.filter((item) => item.category === "special"));
+  }
 
   useEffect(() => {
     axios.get("http://localhost:3008/products").then((res) => {
       if (res.status === 200) {
-        setNewData(res.data);
+        saveData(res.data);
         console.log("Products list 0_0) ==> ", res.data);
       } else {
         console.log("Not successful");
@@ -29,7 +32,7 @@ const Home = () => {
     });
   }, []);
 
-  console.log("Data products===> ", newData);
+  // console.log("Data products===> ", newData);
 
   const getCategory = (path) => {
     const copyData = newData.filter((item) => {
@@ -51,11 +54,11 @@ const Home = () => {
             getCategory={getCategory}
             selected={selected}
           />
-          <Products
+          {/* <Products
             productsData={newData}
             category={CATEGORY}
             selected={selected}
-          />
+          /> */}
           <MiddleContent />
           <SpecialsProducts data={specialData} />
         </ProductsContext.Provider>

@@ -8,10 +8,11 @@ const Products = (props) => {
   let [itemId, setItemId] = useState("");
 
   const ModalCall = (id) => {
+    console.log("Modal dotor!!!!");
     // Asuudal VIEW HESGIIG HAANA HARUULAH BE!!!!!!
     <div>
-      <Modal id={id} data={props.productsData} />
-      <Shadow />
+      {/* <Modal id={id} data={props.productsData} /> */}
+      {/* <Shadow /> */}
     </div>;
   };
 
