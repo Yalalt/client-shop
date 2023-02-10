@@ -4,14 +4,17 @@ import GrayShoppingCardImage from "../../utils/imgs/shoppingcartwhite.png";
 
 const SpecialsProducts = (props) => {
   const specialsData = props.data;
+
+  console.log("Special dotor products :==> ", specialsData);
+
   return (
     <div className={css.SpecialsProducts}>
       <div className={css.MainSpecials}>
-        <img
+        {/* <img
           className={css.MainImage}
           src={specialsData[0].image}
           alt="Specials Product 1"
-        />
+        /> */}
         <span className={css.name}>{specialsData[0].name}</span>
         <span className={css.price}>${specialsData[0].price}</span>
         <p className={css.desc}>{specialsData[0].description}</p>

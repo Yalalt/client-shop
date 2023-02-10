@@ -1,4 +1,4 @@
-import { data, CATEGORY, NAVIGATION } from "../../utils/data";
+import { CATEGORY, NAVIGATION } from "../../utils/data";
 import { useState, useEffect, createContext } from "react";
 import ShowcaseHero from "../../component/ShowcaseHero";
 import Navbar from "../../component/subComponent/Navbar";
@@ -17,15 +17,15 @@ const Home = () => {
   let [specialData, setSpecialData] = useState();
 
   const saveData = (data) => {
-    setNewData(data);
-    setSpecialData(() => newData.filter((item) => item.category === "special"));
+    setSpecialData(() => data.filter((item) => item.category === "special"));
   }
 
   useEffect(() => {
     axios.get("http://localhost:3008/products").then((res) => {
       if (res.status === 200) {
-        saveData(res.data);
+        setNewData(res.data);
         console.log("Products list 0_0) ==> ", res.data);
+        saveData(res.data);
       } else {
         console.log("Not successful");
       }
@@ -54,13 +54,13 @@ const Home = () => {
             getCategory={getCategory}
             selected={selected}
           />
-          {/* <Products
+          <Products
             productsData={newData}
             category={CATEGORY}
             selected={selected}
-          /> */}
+          />
           <MiddleContent />
-          <SpecialsProducts data={specialData} />
+          {/* <SpecialsProducts data={specialData} /> */}
         </ProductsContext.Provider>
         <Logos />
       </div>
