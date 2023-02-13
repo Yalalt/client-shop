@@ -1,31 +1,35 @@
 import { CATEGORY, NAVIGATION } from "../../utils/data";
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect } from "react";
 import ShowcaseHero from "../../component/ShowcaseHero";
 import Navbar from "../../component/subComponent/Navbar";
 import MiddleContent from "../../component/MiddleContent";
 import Products from "../../component/Products";
-import SpecialsProducts from "../../component/SpecialsProducts";
 import Logos from "../../component/Logos";
 import Footer from "../../component/Footer";
 import style from "./home.module.css";
 import axios from "axios";
+import { ProductsContext } from "../../component/ProductsContext";
+import SpecialsProducts from "../../component/SpecialsProducts";
 
 const Home = () => {
-  let ProductsContext = createContext();
+  
   let [selected, setSelected] = useState("all");
   let [newData, setNewData] = useState();
   let [specialData, setSpecialData] = useState();
 
   const saveData = (data) => {
-    setSpecialData(() => data.filter((item) => item.category === "special"));
+    const newSpecials = data.filter((item) => item.category === "special");
+    console.log("Specials data==> ", newSpecials);
+    setSpecialData(newSpecials);
   }
 
   useEffect(() => {
     axios.get("http://localhost:3008/products").then((res) => {
       if (res.status === 200) {
-        setNewData(res.data);
-        console.log("Products list 0_0) ==> ", res.data);
-        saveData(res.data);
+        const receivedData = res.data;
+        setNewData(receivedData);
+        console.log("Products list 0_0) ==> ", receivedData);
+        saveData(receivedData);
       } else {
         console.log("Not successful");
       }
@@ -48,19 +52,18 @@ const Home = () => {
     <div className={style.homeStyleMain}>
       <ShowcaseHero />
       <div className={style.innerContainer}>
-        <ProductsContext.Provider value={newData}>
+        <ProductsContext.Provider value={{newData, specialData}}>
           <Navbar
             navigationMenus={NAVIGATION}
             getCategory={getCategory}
             selected={selected}
           />
-          <Products
-            productsData={newData}
+          {/* <Products
             category={CATEGORY}
             selected={selected}
-          />
-          <MiddleContent />
-          {/* <SpecialsProducts data={specialData} /> */}
+          /> */}
+          {/* <MiddleContent /> */}
+          <SpecialsProducts />
         </ProductsContext.Provider>
         <Logos />
       </div>
