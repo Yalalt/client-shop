@@ -4,38 +4,28 @@ import CardProduct from "../CardProduct";
 import Shadow from "../Shadow";
 import { ProductsContext } from "../App";
 
-const Products = (props) => {
+const Product = (props) => {
   let [modalOpen, setModalOpen] = useState(false);
   let [itemId, setItemId] = useState("");
-  const productss = props.selectedProducts;
 
-  console.log("Context data irsen ==> ", products);
+  const newData = useContext(ProductsContext);
+  console.log("Context data irsen ==> ", newData);
 
   const ModalCall = (id) => {
     console.log("Modal dotor!!!!");
     // Asuudal VIEW HESGIIG HAANA HARUULAH BE!!!!!!
     <div>
-      <Modal id={id} data={productss} />
+      <Modal id={id} data={newData} />
       <Shadow />
     </div>;
   };
 
   console.log("State Modal: " + modalOpen);
-  console.log("Products Componenents dotor ====> ", products);
 
   return (
     <div className={css.CardContainer}>
-      {productss.map((item, index) => {
-        return (
-          <CardProduct
-            itemData={item}
-            key={index}
-            ModalCall={ModalCall}
-            // itemID={item.id}
-          />
-        );
-      })}
+      One Product here
     </div>
   );
 };
-export default Products;
+export default Product;
