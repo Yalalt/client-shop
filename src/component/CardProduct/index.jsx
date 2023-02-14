@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 const CardProduct = (props) => {
   const { login, prodName, desc, price, stock, category, id, imageUrl, brand, sale } = props;
+  const navigateToProduct = useNavigate();
 
-  console.log("Card Product dotor shvv!!!!");
-
+  
   const basketHandler = () => {
     let basket = [id];
     let temp = JSON.parse(localStorage.getItem("basket"));
@@ -16,23 +16,22 @@ const CardProduct = (props) => {
     }
     localStorage.setItem("basket", JSON.stringify(basket));
   }
-
+  
   const alertHandler = () => {
     alert("Та эхлээд нэвтрэх хэрэгтэй!");
   }
-
-  const navigateToProduct = useNavigate();
+  
   const productPage = () => {
     navigateToProduct(`/product/${id}`);
     console.log("Product page to navigate ==> ", id);
   }
-
+  
   return (
     <div>
       <div
         className={css.CardBody}
         onClick={productPage}
-      >
+        >
         <div className={css.CardImage}>
           <img src={imageUrl} alt="Item shop" />
         </div>
@@ -46,6 +45,7 @@ const CardProduct = (props) => {
         )}
         <div className={css.grayShoppingCart}>
           <button
+            className={css.basketCartButton}
             onClick={login ? basketHandler : alertHandler}
           >
           <img src={GrayShoppingCardImage} alt="Shopping cart" />

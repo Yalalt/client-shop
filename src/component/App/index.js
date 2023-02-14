@@ -14,6 +14,8 @@ function App() {
   const [products, setProducts] = useState();
   const [currentCategory, setCurrentCategory] = useState("all");
   const [openLogin, setOpenLogin] = useState(false);
+  const [basketNo, setBasketNo] = useState(0);
+  const [closeModal, setCloseModal] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -105,7 +107,6 @@ function App() {
     <>
       {products && (
         <div className={style.container}>
-          <Header />
           <ProductsContext.Provider
             value={{
               usersData,
@@ -116,14 +117,17 @@ function App() {
               setOpenLogin,
               setCurrentCategory,
               setLogin,
+              basketNo,
+              setBasketNo,
+              closeModal,
+              setCloseModal,
             }}
           >
-            <div>
-              <Routes>
-                <Route path="/" element={<HomeProducts />} />
-                <Route path="/product/:id" element={<Product />} />
-              </Routes>
-            </div>
+            <Header />
+            <Routes>
+              <Route path="/" element={<HomeProducts />} />
+              <Route path="/product/:id" element={<Product />} />
+            </Routes>
           </ProductsContext.Provider>
           <Footer className={style.footerLocation} />
         </div>

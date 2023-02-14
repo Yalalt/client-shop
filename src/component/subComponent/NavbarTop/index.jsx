@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import HeaderLogoBig from "../../../utils/imgs/headerLogoElectronics.png";
 import UserIcon from "../../../utils/imgs/user.png";
 import CartIcon from "../../../utils/imgs/shoppingcartwhite.png";
 import style from "./navbarTop.module.css";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ProductsContext } from "../../App";
+import { Modal } from "react-bootstrap";
+import Shadow from "../../Shadow";
 
-export default function NavbarTop(props) {
+export default function NavbarTop() {
+
+  const { basketNo, setLogin, login, closeModal, setCloseModal, products, currentCategory, setCurrentCategory } = useContext(ProductsContext);
+
+  const [openCanvas, setOpenCanvas] = useState(false);
+  const navigate = useNavigate();
+
+  let basketIds = JSON.parse(localStorage.getItem("basket"));
+  let basket = [];
+  let totalPrice = 0;
+
+  if (basketIds) {
+    products.find((product) => {
+      basketIds.map((id) => {
+        if (product.pid === id) {
+          basket.push(product);
+        }
+      })
+    })
+  }
+
+  basket.map((a) => totalPrice + a.price);
+  console.log("Total Price", totalPrice);
+
+
+
   return (
     <nav className={style.navbarTop}>
       <Link to="/" className={style.logoNavbar}>
@@ -25,19 +53,27 @@ export default function NavbarTop(props) {
         <span className={style.signInIcon}>
           <img src={UserIcon} alt="User account icon" />
           {
-            props.loggedUser ? <button 
-            onClick={()=>props.setLogged(false)}
-            className={style.loginItem}>Logout</button> : <button 
-            onClick={()=>props.setLogin(true)}
-            className={style.loginItem}>Sign in</button>
+            login ? (<button
+              onClick={() => {
+                navigate("/");
+                setCloseModal(false);
+                localStorage.setItem("login", false);
+                setLogin(JSON.parse(localStorage.getItem("login")));
+                localStorage.removeItem("userId");
+              }}
+              className={style.loginItem}>Logout</button>) : (<button
+                onClick={() => setCloseModal(true)}
+                className={style.loginItem}>Sign in</button>)
           }
-          
+
         </span>
         <span className={style.signInIcon}>
           <img src={CartIcon} alt="Shopping cart icon" />
-          <p className={style.userCartValue}>0</p>
+          <p className={style.userCartValue}>{basketNo}</p>
         </span>
       </ul>
     </nav>
+      // &&
+      // closeModal ? (<><Modal /><Shadow /></>) : null
   );
 }

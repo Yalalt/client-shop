@@ -1,14 +1,13 @@
 import { CATEGORY, NAVIGATION } from "../../utils/data";
 import { useState, useEffect, useContext } from "react";
 import { ProductsContext } from "../App";
-import axios from "axios";
 import Navbar from "../subComponent/Navbar";
 import ShowcaseHero from "../ShowcaseHero";
 import Products from "../Products";
 import MiddleContent from "../MiddleContent";
 import SpecialsProducts from "../SpecialsProducts";
+import BasketCart from "../BasketCart";
 import Logos from "../Logos";
-import Footer from "../Footer";
 import style from "./homeProducts.module.css";
 
 const HomeProducts = () => {
@@ -33,6 +32,8 @@ const HomeProducts = () => {
     products && (
       <div>
         <div className={style.innerContainer}>
+          <BasketCart />
+          <ShowcaseHero />
           <Navbar
             navigationMenus={NAVIGATION}
             getCategory={getCategory}

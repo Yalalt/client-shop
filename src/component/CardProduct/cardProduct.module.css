@@ -20,7 +20,7 @@
 }
 .CardImage img {
   width: auto;
-  height: 150px;
+  height: 200px;
 }
 .CardContent {
   margin: 0;
@@ -53,14 +53,18 @@
   color: var(--primary-color);
   font-weight: 300;
 }
+.basketCartButton {
+  background-color: transparent;
+  border: none;
+}
 .grayShoppingCart {
   width: 30px;
   height: 30px;
   position: absolute;
-  bottom: 0;
-  right: 10px;
+  bottom: 10px;
+  right: 30px;
   transform: translateY(-10px);
 }
-.grayShoppingCart img {
-  width: 100%;
+.grayShoppingCart .basketCartButton img {
+  width: 200%;
 }

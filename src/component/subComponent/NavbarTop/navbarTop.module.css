@@ -14,7 +14,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 1px 0;
+  padding: 0;
   height: 45px;
 }
 .inputSearch {
@@ -29,9 +29,9 @@
 }
 .searchBtn {
   position: absolute;
-  right: 1px;
-  top: 1px;
-  height: inherit;
+  right: 3px;
+  top: 3px;
+  height: 40px;
   width: 150px;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
