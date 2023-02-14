@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ProductsContext } from "../../App";
 import { Modal } from "react-bootstrap";
 import Shadow from "../../Shadow";
+import axios from "axios";
 
 export default function NavbarTop() {
 
@@ -17,7 +18,7 @@ export default function NavbarTop() {
 
   let basketIds = JSON.parse(localStorage.getItem("basket"));
   let basket = [];
-  let totalPrice = 0;
+  let total_price = 0;
 
   if (basketIds) {
     products.find((product) => {
@@ -29,10 +30,48 @@ export default function NavbarTop() {
     })
   }
 
-  basket.map((a) => totalPrice + a.price);
-  console.log("Total Price", totalPrice);
+  basket.map((a) => total_price + a.price);
+  console.log("Total Price", total_price);
+
+  let orders_amount = basket.length;
+
+  function ordersHandle() {
+    let oid = "o".concat(genRandomHex(8));
+    let onumber = "#".concat(genRandomDecimal(2));
+    let o_date = getFullDate();
+    let mid = "m".concat(genRandomHex(8));
+    let uid = localStorage.getItem("userId");
+
+    let newOrder = {
+      oid,
+      onumber,
+      o_date,
+      uid,
+      pid: basketIds,
+      orders_amount,
+      total_price,
+      payment_type: "card",
+      status: "active",
+      ebarimt: "irgen",
+      mid
+    }
+
+    axios.post("http://localhost:3008/order", newOrder).then((res) => console.log("Add Order response here ==> ", res)).catch((error) => console.log("Error"));
+
+    localStorage.removeItem("basket");
+  }
 
 
+  // get Full date 2023-02-28
+  const getFullDate = () => new Date().toISOString().slice(0, 10);
+
+  // UID generator Hex number
+  const genRandomHex = (size) => [...Array(size)]
+    .map(() => Math.floor(Math.random() * 16).toString(16))
+    .join("");
+
+  // UID generator Decimal number
+  const genRandomDecimal = (size) => [...Array(size)].map(() => Math.floor(Math.random() * 9).toString(10)).join("");
 
   return (
     <nav className={style.navbarTop}>
@@ -73,7 +112,7 @@ export default function NavbarTop() {
         </span>
       </ul>
     </nav>
-      // &&
-      // closeModal ? (<><Modal /><Shadow /></>) : null
+    // &&
+    // closeModal ? (<><Modal /><Shadow /></>) : null
   );
 }
