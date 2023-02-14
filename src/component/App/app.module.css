@@ -15,3 +15,6 @@
   transform: translateY(-200vh);
   transition: all 0.3s ease-out;
 }
+.footerLocation {
+  bottom: 0;
+}

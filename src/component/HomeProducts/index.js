@@ -12,11 +12,11 @@ import Footer from "../Footer";
 import style from "./homeProducts.module.css";
 
 const HomeProducts = () => {
-  const { products } = useContext(ProductsContext);
-  const [selected, setSelected] = useState("all");
-  const [selectedProducts, setSelectedProducts] = useState();
+  const { products, currentCategory, setCurrentCategory } =
+    useContext(ProductsContext);
 
-  console.log("Data products in Home Products ===> ", products);
+  const [selected, setSelected] = useState();
+  const [selectedProducts, setSelectedProducts] = useState();
 
   const getCategory = (path) => {
     const copyData = products.filter((item) => {
@@ -26,23 +26,25 @@ const HomeProducts = () => {
     });
     setSelected(path);
     setSelectedProducts(copyData);
+    console.log("ZOWHON Home Products dotor----->>>", copyData);
   };
 
   return (
-    <div className={style.homeStyleMain}>
-      <div className={style.innerContainer}>
-        <Navbar
-          navigationMenus={NAVIGATION}
-          getCategory={getCategory}
-          selected={selected}
-        />
-        <Products selectedProducts={selectedProducts}/>
-        <MiddleContent />
-        {/* <SpecialsProducts /> */}
-        <Logos />
+    products && (
+      <div>
+        <div className={style.innerContainer}>
+          <Navbar
+            navigationMenus={NAVIGATION}
+            getCategory={getCategory}
+            selected={selected}
+          />
+          <Products currentCategory={currentCategory} />
+          <MiddleContent />
+          <SpecialsProducts />
+          <Logos />
+        </div>
       </div>
-      <Footer />
-    </div>
+    )
   );
 };
 export default HomeProducts;

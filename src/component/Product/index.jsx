@@ -1,15 +1,16 @@
 import React, { useState, useContext } from "react";
 import css from "./products.module.css";
-import CardProduct from "../CardProduct";
 import Shadow from "../Shadow";
 import { ProductsContext } from "../App";
+import { useParams } from "react-router-dom";
 
 const Product = (props) => {
-  let [modalOpen, setModalOpen] = useState(false);
-  let [itemId, setItemId] = useState("");
+  const { products } = useContext(ProductsContext);
+  const [desc, setDesc] = useState(true);
+  const prodiData = useParams();
+  const [counter, setCounter] = useState(0);
 
-  const newData = useContext(ProductsContext);
-  console.log("Context data irsen ==> ", newData);
+  // function counterHandler(e, )
 
   const ModalCall = (id) => {
     console.log("Modal dotor!!!!");
@@ -23,8 +24,8 @@ const Product = (props) => {
   console.log("State Modal: " + modalOpen);
 
   return (
-    <div className={css.CardContainer}>
-      One Product here
+    <div className={`${css.CardContainer} ${css.ProductCard}`} key={index}>
+      
     </div>
   );
 };

@@ -1,39 +1,45 @@
-import React, { useState, useContext } from "react";
-import css from "./products.module.css";
-import CardProduct from "../CardProduct";
-import Shadow from "../Shadow";
+import React, { useContext } from "react";
 import { ProductsContext } from "../App";
+import CardProduct from "../CardProduct";
+import css from "./products.module.css";
 
 const Products = (props) => {
-  let [modalOpen, setModalOpen] = useState(false);
-  let [itemId, setItemId] = useState("");
-  const productss = props.selectedProducts;
+  const { currentCategory } = props;
+  const { products, login } = useContext(ProductsContext);
 
-  console.log("Context data irsen ==> ", products);
 
-  const ModalCall = (id) => {
-    console.log("Modal dotor!!!!");
-    // Asuudal VIEW HESGIIG HAANA HARUULAH BE!!!!!!
-    <div>
-      <Modal id={id} data={productss} />
-      <Shadow />
-    </div>;
-  };
-
-  console.log("State Modal: " + modalOpen);
-  console.log("Products Componenents dotor ====> ", products);
+  // const [modalOpen, setModalOpen] = useState(false);
+  // const ModalCall = (id) => {
+  //   console.log("Modal dotor!!!!");
+  //   // Asuudal VIEW HESGIIG HAANA HARUULAH BE!!!!!!
+  //   <div>
+  //     <Modal id={id} data={products} />
+  //     <Shadow />
+  //   </div>;
+  // };
+  
 
   return (
     <div className={css.CardContainer}>
-      {productss.map((item, index) => {
-        return (
-          <CardProduct
-            itemData={item}
-            key={index}
-            ModalCall={ModalCall}
-            // itemID={item.id}
-          />
-        );
+      {products.map((item, index) => {
+        if(currentCategory === "all" || item.category === currentCategory) {
+          return (
+            <div key={index}>
+              <CardProduct 
+                login={login}
+                prodName={item.name}
+                desc={item.description}
+                price={item.price}
+                stock={item.stock}
+                category={item.category}
+                id={item.pid}
+                imageUrl={item.image}
+                brand={item.spec.brand}
+                sale={item.sale}
+              />
+            </div>
+          );
+        }
       })}
     </div>
   );
