@@ -73,7 +73,7 @@
 
 .productCardBtns button {
   width: 30%;
-  height: 60px;
+  height: 50px;
   border-radius: 30px;
   border: none;
   background-color: #003585;
@@ -119,4 +119,8 @@
 }
 .backButtonProduct:hover {
   background-color: #003aaa;
+}
+.stockGreenLabel {
+  color: #30BD57;
+  font-weight: 500;
 }

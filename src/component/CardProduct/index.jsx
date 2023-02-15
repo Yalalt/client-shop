@@ -4,10 +4,20 @@ import GrayShoppingCardImage from "../../utils/imgs/shoppingcartgray.png";
 import { useNavigate } from "react-router-dom";
 
 const CardProduct = (props) => {
-  const { login, prodName, desc, price, stock, category, id, imageUrl, brand, sale } = props;
+  const {
+    login,
+    prodName,
+    desc,
+    price,
+    stock,
+    category,
+    id,
+    imageUrl,
+    brand,
+    sale,
+  } = props;
   const navigateToProduct = useNavigate();
 
-  
   const basketHandler = () => {
     let basket = [id];
     let temp = JSON.parse(localStorage.getItem("basket"));
@@ -15,23 +25,22 @@ const CardProduct = (props) => {
       basket = [...temp, id];
     }
     localStorage.setItem("basket", JSON.stringify(basket));
-  }
-  
+  };
+
   const alertHandler = () => {
     alert("Та эхлээд нэвтрэх хэрэгтэй!");
-  }
-  
+  };
+
   const productPage = () => {
     navigateToProduct(`/product/${id}`);
     console.log("Product page to navigate ==> ", id);
-  }
+  };
+
   
+
   return (
     <div>
-      <div
-        className={css.CardBody}
-        onClick={productPage}
-        >
+      <div className={css.CardBody} onClick={productPage}>
         <div className={css.CardImage}>
           <img src={imageUrl} alt="Item shop" />
         </div>
@@ -40,15 +49,13 @@ const CardProduct = (props) => {
           <span className={css.Name}>{prodName}</span>
           <span className={css.Price}>${price}</span>
         </div>
-        {sale !== 0 && (
-          <div className={css.saleTitle}>Sale {sale}% off</div>
-        )}
+        {sale !== 0 && <div className={css.saleTitle}>Sale {sale}% off</div>}
         <div className={css.grayShoppingCart}>
           <button
             className={css.basketCartButton}
             onClick={login ? basketHandler : alertHandler}
           >
-          <img src={GrayShoppingCardImage} alt="Shopping cart" />
+            <img src={GrayShoppingCardImage} alt="Shopping cart" />
           </button>
         </div>
       </div>
