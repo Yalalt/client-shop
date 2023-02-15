@@ -9,10 +9,10 @@ import SpecialsProducts from "../SpecialsProducts";
 import BasketCart from "../BasketCart";
 import Logos from "../Logos";
 import style from "./homeProducts.module.css";
+import { useProductContext } from "../ContextProviders/ProductContext";
 
 const HomeProducts = () => {
-  const { products, currentCategory, setCurrentCategory } =
-    useContext(ProductsContext);
+  const { products, currentCategory, setCurrentCategory } = useProductContext();
 
   const [selected, setSelected] = useState();
   const [selectedProducts, setSelectedProducts] = useState();

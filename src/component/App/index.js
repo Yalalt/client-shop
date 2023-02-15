@@ -7,7 +7,6 @@ import style from "./app.module.css";
 import axios from "axios";
 import Footer from "../Footer";
 
-export const ProductContext = createContext();
 
 function App() {
   const [usersData, setUsersData] = useState(false);
@@ -49,30 +48,29 @@ function App() {
   }
   const [login, setLogin] = useState(JSON.parse(localStorage.getItem("login")));
 
+  // value={{
+ 
+  //   currentCategory,
+  //   openLogin,
+  //   login,
+  //   setOpenLogin,
+  //   setCurrentCategory,
+  //   setLogin,
+  //   basketNo,
+  //   setBasketNo,
+  //   closeModal,
+  //   setCloseModal
+  // }}
+
+
   return (
     <>
       <div className={style.container}>
-          <ProductsContext.Provider
-            value={{
- 
-              currentCategory,
-              openLogin,
-              login,
-              setOpenLogin,
-              setCurrentCategory,
-              setLogin,
-              basketNo,
-              setBasketNo,
-              closeModal,
-              setCloseModal
-            }}
-          >
             <Header />
             <Routes>
               <Route path="/" element={<HomeProducts />} />
               <Route path="/product/:id" element={<Product />} />
             </Routes>
-          </ProductsContext.Provider>
           <Footer className={style.footerLocation} />
         </div>
     </>
