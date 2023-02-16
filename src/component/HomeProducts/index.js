@@ -13,7 +13,6 @@ import { useProductContext } from "../ContextProviders/ProductContext";
 
 const HomeProducts = () => {
   const { products, currentCategory, setCurrentCategory } = useProductContext();
-
   const [selected, setSelected] = useState();
   const [selectedProducts, setSelectedProducts] = useState();
 
@@ -24,8 +23,7 @@ const HomeProducts = () => {
       }
     });
     setSelected(path);
-    setSelectedProducts(copyData);
-    console.log("ZOWHON Home Products dotor----->>>", copyData);
+    setCurrentCategory(path);
   };
 
   return (
@@ -37,7 +35,7 @@ const HomeProducts = () => {
           <Navbar
             navigationMenus={NAVIGATION}
             getCategory={getCategory}
-            selected={selected}
+            currentCategory={currentCategory}
           />
           <Products currentCategory={currentCategory} />
           <MiddleContent />

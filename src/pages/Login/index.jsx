@@ -2,7 +2,7 @@ import { useState } from "react";
 import loginiconlogo from "../../utils/imgs/loginRegisterLogo.png";
 import style from "./login.module.css";
 
-const Login = (props) => {
+const Login = () => {
   function loginHandler(e) {
     e.preventDefault();
     console.log("Name: " + e.target.userName.value);

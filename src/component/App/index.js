@@ -70,6 +70,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomeProducts />} />
               <Route path="/product/:id" element={<Product />} />
+              
             </Routes>
           <Footer className={style.footerLocation} />
         </div>
