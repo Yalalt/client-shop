@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import css from "./specialsProducts.module.css";
 import GrayShoppingCardImage from "../../utils/imgs/shoppingcartwhite.png";
-import { ProductsContext } from "../App";
+import { useProductContext } from "../ContextProviders/ProductContext";
 
 // Only to have show 3 three Specials products
 const SpecialsProducts = () => {
-  const { products } = useContext(ProductsContext);
+  const { products } = useProductContext();
   const filteredProduct = products.filter((product) => product.category === "special");
 
   return (

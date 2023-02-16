@@ -4,32 +4,25 @@ import UserIcon from "../../../utils/imgs/user.png";
 import CartIcon from "../../../utils/imgs/shoppingcartwhite.png";
 import style from "./navbarTop.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { ProductsContext } from "../../App";
-import { Modal } from "react-bootstrap";
-import Shadow from "../../Shadow";
 import axios from "axios";
+import { useProductContext } from "../../ContextProviders/ProductContext";
+import { useBasketContext } from "../../ContextProviders/BasketContext";
+import { useUserContext } from "../../ContextProviders/UserContext";
 
 export default function NavbarTop() {
-  const {
-    basketNo,
-    setLogin,
-    login,
-    closeModal,
-    setCloseModal,
-    products,
-    currentCategory,
-    setCurrentCategory,
-  } = useContext(ProductsContext);
-  
+  const { products } = useProductContext();
+  const { basketList, setBasketLst, wishList, setWishList, closeModal, setCloseModal } = useBasketContext();
+  const { usersData, setUsersData, openLogin, setOpenLogin, login, setLogin } = useUserContext();
+
   const navigate = useNavigate();
 
-  let basketIds = JSON.parse(localStorage.getItem("basket"));
+  
   let basket = [];
   let total_price = 0;
 
-  if (basketIds && products) {
+  if (basketList && products) {
     products.find((product) => {
-      basketIds.map((id) => {
+      basketList.map((id) => {
         if (product.pid === id) {
           basket.push(product);
         }
@@ -68,7 +61,7 @@ export default function NavbarTop() {
       .then((res) => console.log("Add Order response here ==> ", res))
       .catch((error) => console.log("Error"));
 
-    localStorage.removeItem("basket");
+    
   }
 
   // get Full date 2023-02-28
@@ -129,11 +122,12 @@ export default function NavbarTop() {
           </span>
           <span className={style.signInIcon}>
             <img src={CartIcon} alt="Shopping cart icon" />
-            <p className={style.userCartValue}>{basketNo}</p>
+            <p className={style.userCartValue}>{basketList.length}</p>
           </span>
         </ul>
       </nav>
-      {/* && (<OffCanvasExample key={idx} placement="end" name={placement} />) */}
+      {closeModal &&
+      <OffCanvasExample key={idx} placement="end" name={placement} />}
     </div>
   );
 }

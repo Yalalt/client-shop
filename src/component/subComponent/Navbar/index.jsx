@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import style from "./navbar.module.css";
-import { ProductsContext } from "../../App";
 import { NAVIGATION } from "../../../utils/data";
 
-export default function Navbar() {
-  const { currentCategory, setCurrentCategory } = useContext(ProductsContext);
-
+export default function Navbar(props) {
+  const { setCategory, currentCat } = props;
   const navigationMenus = NAVIGATION;
 
   return (
@@ -13,8 +11,8 @@ export default function Navbar() {
       <span className={style.popular}>Popular products</span>
       <ul className={style.menuItems}>
         {navigationMenus.map((menu, index) => (
-          <li key={index} className={currentCategory === menu.url ? style.active : null}>
-            <button className={style.Button} key={`btn${index}`} onClick={() => setCurrentCategory(menu.url)}>
+          <li key={index} className={currentCat === menu.url ? style.active : null}>
+            <button className={style.Button} key={`btn${index}`} onClick={() => setCategory(menu.url)}>
               {menu.name}
             </button>
           </li>

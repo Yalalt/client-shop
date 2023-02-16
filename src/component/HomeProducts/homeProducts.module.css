@@ -11,4 +11,11 @@
   .innerContainer {
     margin: 40px 30px;
   }
+  .CardContainer {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
   
