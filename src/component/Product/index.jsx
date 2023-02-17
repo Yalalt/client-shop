@@ -7,7 +7,7 @@ import UserProvider from "../ContextProviders/UserContext";
 
 const Product = () => {
   const { products } = useProductContext();
-  const { basketList, setBasketLst } = useBasketContext();
+  const { basketList, addToBasket, removeFromBasket, updateBasketItemCount } = useBasketContext();
 
   const [desc, setDesc] = useState(true);
   const prodiData = useParams();
@@ -17,8 +17,8 @@ const Product = () => {
 
   useEffect(() => {
     let login = JSON.parse(localStorage.getItem("login"));
-    let countBasketID = {};
-    let count = 0;
+    // let countBasketID = {};
+    // let count = 0;
 
     // if (login) {
     // basketStorage.map((id) => {
@@ -28,36 +28,35 @@ const Product = () => {
     //   count = countBasketID[prodiData];
     //   console.log(count);
     // }
-    console.log("Ajillaagvi ===> ");
     // setCounter(count);
     // }
   }, []);
 
-  const basketHandler = (id) => {
-    let login = JSON.parse(localStorage.getItem("login"));
-    let productsID = [];
+  // const basketHandler = (id) => {
+  //   let login = JSON.parse(localStorage.getItem("login"));
+  //   let productsID = [];
 
-    if (login) {
-      for (let i = 0; i < counter; i++) {
-        productsID.push(id);
-      }
+  //   if (login) {
+  //     for (let i = 0; i < counter; i++) {
+  //       productsID.push(id);
+  //     }
 
-      basketStorage ? productsID.push(...basketStorage) : null;
-      localStorage.setItem("basket", JSON.stringify(productsID));
-    }
-  };
+  //     basketStorage ? productsID.push(...basketStorage) : null;
+  //     localStorage.setItem("basket", JSON.stringify(productsID));
+  //   }
+  // };
 
-  const counterHandler = (e, balance) => {
-    let operator = e.target.innerText;
+  // const counterHandler = (e, balance) => {
+  //   let operator = e.target.innerText;
 
-    if (operator === "+" && counter < balance) {
-      setCounter((prev) => prev + 1);
-      setBasketLst((prev) => prev + 1);
-    } else if (operator === "-" && counter > 0) {
-      setCounter((prev) => prev - 1);
-      setBasketLst((prev) => prev - 1);
-    }
-  };
+  //   if (operator === "+" && counter < balance) {
+  //     setCounter((prev) => prev + 1);
+
+  //   } else if (operator === "-" && counter > 0) {
+  //     setCounter((prev) => prev - 1);
+
+  //   }
+  // };
 
   const backtoGoHome = () => {
     navigate(-1);
@@ -102,20 +101,20 @@ const Product = () => {
             <div className={css.quantity}>
               Quantity:
               <div className={css.quantity}>
-                <button onClick={(e) => counterHandler(e, product.stock)}>
+                <button onClick={(e) => removeFromBasket(product.pid)}>
                   -
                 </button>
-                <p>{counter}</p>
-                <button onClick={(e) => counterHandler(e, product.stock)}>
+                <input value={basketList[product.pid]} onChange={(e) => updateBasketItemCount(e.target.value, product.pid)}/>
+                <button onClick={(e) => addToBasket(product.pid)}>
                   +
                 </button>
               </div>
             </div>
             <br />
             <div className={css.productCardBtns}>
-              <button onClick={() => basketHandler(product.pid)}>
+              {/* <button onClick={() => addToBasket(product.pid)}>
                 Add to cart
-              </button>
+              </button> */}
               <button>Buy it now</button>
             </div>
             <hr />

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
-const ProductContext = createContext();
+const ProductContext = createContext(null);
 
 export function useProductContext() {
   return useContext(ProductContext);
@@ -36,6 +36,7 @@ export default function ProductProvider({ children }) {
       setProducts(res);
       console.log("Products=0_0=> ", res);
     });
+
   }, []);
 
   return (

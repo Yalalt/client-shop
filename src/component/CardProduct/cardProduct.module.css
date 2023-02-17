@@ -1,9 +1,13 @@
-.CardBody {
+.cardBodyOuter {
+  position: relative;
   height: 313px;
   width: 300px;
   border: 1px solid #b6b6b6;
   border-radius: 10px;
-  position: relative;
+}
+.CardBody {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-flow: column;
   margin: 0;
@@ -47,6 +51,7 @@
   position: absolute;
   background-color: var(--secondary-color);
   left: 0;
+  top: 20px;
   padding: 5px 8px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -67,4 +72,12 @@
 }
 .grayShoppingCart .basketCartButton img {
   width: 200%;
+}
+.iconNumberBasket {
+  position: absolute;
+  color: red;
+  font-size: 18px;
+  bottom: 30px;
+  right: 40px;
+  z-index: 200;
 }

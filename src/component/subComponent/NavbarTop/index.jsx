@@ -17,23 +17,23 @@ export default function NavbarTop() {
   const navigate = useNavigate();
 
   
-  let basket = [];
-  let total_price = 0;
+  // let basket = [];
+  // let total_price = 0;
 
-  if (basketList && products) {
-    products.find((product) => {
-      basketList.map((id) => {
-        if (product.pid === id) {
-          basket.push(product);
-        }
-      });
-    });
-  }
+  // if (basketList && products) {
+  //   products.find((product) => {
+  //     basketList.map((id) => {
+  //       if (product.pid === id) {
+  //         basket.push(product);
+  //       }
+  //     });
+  //   });
+  // }
 
-  basket.map((a) => total_price + a.price);
-  console.log("Total Price", total_price);
+  // basket.map((a) => total_price + a.price);
+  // console.log("Total Price", total_price);
 
-  let orders_amount = basket.length;
+  // let orders_amount = basket.length;
 
   function ordersHandle() {
     let oid = "o".concat(genRandomHex(8));
@@ -122,7 +122,7 @@ export default function NavbarTop() {
           </span>
           <span className={style.signInIcon}>
             <img src={CartIcon} alt="Shopping cart icon" />
-            <p className={style.userCartValue}>{basketList.length}</p>
+            <p className={style.userCartValue}>{Object.keys(basketList).filter((keys) => basketList[keys] > 0).length}</p>
           </span>
         </ul>
       </nav>

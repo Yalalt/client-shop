@@ -7,6 +7,7 @@ import NavbarTop from "../subComponent/NavbarTop";
 import UserProvider from "../ContextProviders/UserContext";
 import ProductProvider from "../ContextProviders/ProductContext";
 import BasketProvider from "../ContextProviders/BasketContext";
+import BasketCart from "../BasketCart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomeProducts />} />
                 <Route path="/product/:id" element={<Product />} />
+                <Route path="/basketcart" element={<BasketCart />} />
               </Routes>
             </UserProvider>
           </BasketProvider>
