@@ -1,72 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import css from "./products.module.css";
 import { useProductContext } from "../ContextProviders/ProductContext";
 import { useBasketContext } from "../ContextProviders/BasketContext";
 import { useNavigate, useParams } from "react-router-dom";
-import UserProvider from "../ContextProviders/UserContext";
 
 const Product = () => {
   const { products } = useProductContext();
   const { basketList, addToBasket, removeFromBasket, updateBasketItemCount } = useBasketContext();
-
-  const [desc, setDesc] = useState(true);
   const prodiData = useParams();
   const navigate = useNavigate();
-  const [counter, setCounter] = useState(0);
-  let basketStorage = JSON.parse(localStorage.getItem("basket"));
 
-  useEffect(() => {
-    let login = JSON.parse(localStorage.getItem("login"));
-    // let countBasketID = {};
-    // let count = 0;
+  const counterHandler = (e, balance, pid) => {
+    let operator = e.target.innerText;
 
-    // if (login) {
-    // basketStorage.map((id) => {
-    //   countBasketID[id] = (countBasketID[id] || 0) + 1;
-    // });
-    // if (countBasketID[prodiData]) {
-    //   count = countBasketID[prodiData];
-    //   console.log(count);
-    // }
-    // setCounter(count);
-    // }
-  }, []);
-
-  // const basketHandler = (id) => {
-  //   let login = JSON.parse(localStorage.getItem("login"));
-  //   let productsID = [];
-
-  //   if (login) {
-  //     for (let i = 0; i < counter; i++) {
-  //       productsID.push(id);
-  //     }
-
-  //     basketStorage ? productsID.push(...basketStorage) : null;
-  //     localStorage.setItem("basket", JSON.stringify(productsID));
-  //   }
-  // };
-
-  // const counterHandler = (e, balance) => {
-  //   let operator = e.target.innerText;
-
-  //   if (operator === "+" && counter < balance) {
-  //     setCounter((prev) => prev + 1);
-
-  //   } else if (operator === "-" && counter > 0) {
-  //     setCounter((prev) => prev - 1);
-
-  //   }
-  // };
+    if (operator === "+" && basketList[pid] < balance) {
+      addToBasket(pid);
+    } else if (operator === "-" && basketList[pid] > 0) {
+      removeFromBasket(pid);
+    }
+  };
 
   const backtoGoHome = () => {
     navigate(-1);
+  };
+
+
+  const goToCart = () => {
+    navigate(`/basketcart`);
   };
 
   return (products.map((product, index) => {
     if (product.pid === prodiData.id) {
       return (<div className={css.CardContainer} key={index}>
         <p className={css.url}>
-          Home{" > "}all{` > ${product.category} > ${product.name}`}
+          Home{` > ${product.category} > ${product.name}`}
         </p>
         <div className={css.productCardMain}>
           <div className={css.imageBorder}>
@@ -91,31 +58,31 @@ const Product = () => {
                   <strong>{product.stock}</strong> product left{" "}
                 </span>
               ) : (
-                "No stock"
+                "Дууссан"
               )}{" "}
             </p>
             <p>
               Sale: <strong>{product.sale}%</strong>
             </p>
             <br />
-            <div className={css.quantity}>
+            <div className={css.quantityParent}>
               Quantity:
-              <div className={css.quantity}>
-                <button onClick={(e) => removeFromBasket(product.pid)}>
+              <div className={css.quantityChild}>
+                <button onClick={(e) => counterHandler(e, product.stock, product.pid)}>
                   -
                 </button>
-                <input value={basketList[product.pid]} onChange={(e) => updateBasketItemCount(e.target.value, product.pid)}/>
-                <button onClick={(e) => addToBasket(product.pid)}>
+                <input value={basketList[product.pid]} onChange={(e) => updateBasketItemCount(e.target.value, product.pid)} />
+                <button onClick={(e) => counterHandler(e, product.stock, product.pid)}>
                   +
                 </button>
               </div>
             </div>
             <br />
             <div className={css.productCardBtns}>
-              {/* <button onClick={() => addToBasket(product.pid)}>
+              <button onClick={goToCart}>
                 Add to cart
-              </button> */}
-              <button>Buy it now</button>
+              </button>
+              <button onClick={backtoGoHome}>Buy it now</button>
             </div>
             <hr />
             <div>

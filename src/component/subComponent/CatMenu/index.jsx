@@ -2,7 +2,7 @@ import React from "react";
 import style from "./navbar.module.css";
 import { NAVIGATION } from "../../../utils/data";
 
-export default function Navbar(props) {
+export default function CatMenu(props) {
   const { setCategory, currentCat } = props;
   const navigationMenus = NAVIGATION;
 

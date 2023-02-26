@@ -2,7 +2,7 @@
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
-  background-color: var(--primary-color);
+  background-color: #003585;
   opacity: 0.9;
   position: fixed;
   z-index: 150;

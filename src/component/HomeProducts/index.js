@@ -1,5 +1,5 @@
 import ShowcaseHero from "../ShowcaseHero";
-import Navbar from "../subComponent/Navbar";
+import CatMenu from "../subComponent/CatMenu";
 import CardProduct from "../CardProduct";
 import MiddleContent from "../MiddleContent";
 import SpecialsProducts from "../SpecialsProducts";
@@ -21,7 +21,7 @@ const HomeProducts = () => {
       <div>
         <div className={style.innerContainer}>
           <ShowcaseHero />
-          <Navbar setCategory={setCategory} currentCat={currentCat} />
+          <CatMenu setCategory={setCategory} currentCat={currentCat} />
           <div className={style.CardContainer}>
             {products.map((item, index) => {
               if (currentCat === "all" || item.category === currentCat) {

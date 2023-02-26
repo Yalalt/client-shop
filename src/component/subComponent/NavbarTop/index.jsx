@@ -60,8 +60,6 @@ export default function NavbarTop() {
       .post("http://localhost:3008/order", newOrder)
       .then((res) => console.log("Add Order response here ==> ", res))
       .catch((error) => console.log("Error"));
-
-    
   }
 
   // get Full date 2023-02-28
