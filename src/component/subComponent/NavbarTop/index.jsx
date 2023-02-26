@@ -16,7 +16,7 @@ export default function NavbarTop() {
 
   const navigate = useNavigate();
 
-  
+
   // let basket = [];
   // let total_price = 0;
 
@@ -77,6 +77,11 @@ export default function NavbarTop() {
       .map(() => Math.floor(Math.random() * 9).toString(10))
       .join("");
 
+
+  function goToBasketCart() {
+    navigate("/basketcart");
+  }
+
   return (
     <div>
       <nav className={style.navbarTop}>
@@ -119,13 +124,13 @@ export default function NavbarTop() {
             )}
           </span>
           <span className={style.signInIcon}>
-            <img src={CartIcon} alt="Shopping cart icon" />
+            <img src={CartIcon} alt="Shopping cart icon" onClick={goToBasketCart} />
             <p className={style.userCartValue}>{Object.keys(basketList).filter((keys) => basketList[keys] > 0).length}</p>
           </span>
         </ul>
       </nav>
       {closeModal &&
-      <OffCanvasExample key={idx} placement="end" name={placement} />}
+        <OffCanvasExample key={idx} placement="end" name={placement} />}
     </div>
   );
 }

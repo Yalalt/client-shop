@@ -1,11 +1,9 @@
-.slide {
+.CartContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: #e0e0e0;
-    height: 90vh;
-    width: 80vw;
+    background-color: #fff;
   }
 
   
